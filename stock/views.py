@@ -43,3 +43,7 @@ def deleteItem(request, id):
         message = 'Item cannot be Deleted'
         messages.warning(request, message)
         return HttpResponseRedirect(request.META.get('HTTP_REFERER'))
+
+
+def indexLoadTest(request):
+    return render(request, 'index.html')

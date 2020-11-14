@@ -5,4 +5,5 @@ urlpatterns = [
     path('', views.home, name="home"),
     path('addItem', views.addItem, name='addItem'),
     path('deleteItem/<id>/', views.deleteItem, name='deleteItem'),
+    path('indexLoadTest', views.indexLoadTest, name='indexLoadTest'),
 ]
