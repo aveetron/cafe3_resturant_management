@@ -1,0 +1,36 @@
+{% load static %}
+<script src="https://code.jquery.com/jquery-3.5.1.min.js" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+<script src="{% static 'libs/jquery/dist/jquery.min.js'%}"></script>
+<script src="{% static 'libs/popper.js/dist/umd/popper.min.js'%}"></script>
+<script src="{% static 'libs/bootstrap/dist/js/bootstrap.min.js'%}"></script>
+<!-- apps -->
+<!-- apps -->
+<script src="{% static 'dist/js/app-style-switcher.js'%}"></script>
+<script src="{% static 'dist/js/feather.min.js' %}"></script>
+<script src="{% static 'libs/perfect-scrollbar/dist/perfect-scrollbar.jquery.min.js'%}"></script>
+<script src="{% static 'dist/js/sidebarmenu.js'%}"></script>
+<!--Custom JavaScript -->
+<script src="{% static 'dist/js/custom.min.js'%}"></script>
+<!--This page JavaScript -->
+<script src="{% static 'extra-libs/c3/d3.min.js'%}"></script>
+<script src="{% static 'extra-libs/c3/c3.min.js'%}"></script>
+<script src="{% static 'libs/chartist/dist/chartist.min.js'%}"></script>
+<script src="{% static 'libs/chartist-plugin-tooltips/dist/chartist-plugin-tooltip.min.js'%}"></script>
+<script src="{% static 'extra-libs/jvector/jquery-jvectormap-2.0.2.min.js'%}"></script>
+<script src="{% static 'extra-libs/jvector/jquery-jvectormap-world-mill-en.js'%}"></script>
+<script src="{% static 'dist/js/pages/dashboards/dashboard1.min.js'%}"></script>
+<script src="{% static 'extra-libs/datatables.net/js/jquery.dataTables.min.js'%}"></script>
+<script src="{% static 'dist/js/pages/datatable/datatable-basic.init.js'%}"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/toastr.js/latest/js/toastr.min.js"></script>
+<script>
+$( document ).ready(function() {
+
+    {% if messages %}
+        {% for message in messages %}
+            toastr.{{ message.tags }}('{{ message }}');
+        {% endfor %}
+    {% endif %}
+
+});
+</script> 

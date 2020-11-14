@@ -1,0 +1,86 @@
+{% extends 'base.html' %} {% load static %} {% block main %}
+<div class="page-wrapper">
+    <div class="container-fluid">
+        <form method="POST" >
+            {% csrf_token %}
+            <div class="row">
+                <div class="col-md-4">
+                    <div class="card border-right">
+                        <div class="card-body">
+                            <h1>Order Info</h1><br>
+
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Order Number</label>
+                                <input type="text" name="name" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Customer Name</label>
+                                <input type="text" name="location" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Customer Phone Number</label>
+                                <input type="text" name="location" class="form-control">
+                            </div>
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Total Price</label>
+                                <input type="text" name="location" class="form-control">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+
+                <div class="col-md-8">
+                    <div class="card ">
+                        <div class="card-body">
+                            <div class="row duplicateMe">
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Item Name</label>
+                                        <select class="form-control" name="item" required>
+                                            
+                                            <option value="">Select Item</option>
+                                            <option>Avee</option>
+                                            <option>Avee</option>
+                                        </select>
+                                    </div>
+                                </div>
+                                <div class="col-md-5">
+                                    <div class="form-group">
+                                        <label>Employee ID</label>
+                                        <input class="form-control" name="emp_id" required>
+                                    </div>
+                                </div>
+                                <div class="col-md-2">
+                                    <label>Add/remove</label><br>
+                                    <button type="button" class="btn btn-primary" style="margin-top: 1px;" id="repeat"><i class="fa fa-plus"></i></button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <button class="btn btn-primary btn-block">Submit</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<script src="https://code.jquery.com/jquery-3.4.1.min.js"></script>
+<script>
+    $('body').on('click', '#repeat', function(){
+        $duplicate = $('.duplicateMe');
+        $duplicate.find('span').remove();
+        var clone = $duplicate.html();
+        $('.duplicateMe').parent().append('<div class="row duplicateMe">'+clone+'</div>');
+        $(this).parent().append('<button type="button" class="btn btn-danger" style="margin-top: 1px;" id="remove"><i class="fa fa-minus"></i></button>');
+        $(this).remove();
+        $duplicate.removeClass('duplicateMe');
+        });
+        
+        // Remove Form data
+    $('body').on('click', '#remove', function(){
+        $(this).parent().parent().remove();
+    });
+</script>
+
+{% endblock %}
